@@ -1,0 +1,8 @@
+{
+  "name": "SonicAurora",
+  "description": "Sound Frequency Healing and soundscape therapy web application with binaural beats, Solfeggio tones, and ambient blends.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
