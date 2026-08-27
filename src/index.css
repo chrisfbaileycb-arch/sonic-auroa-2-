@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: 8 14 22;
+  --color-primary: 90 200 190;
+  --color-secondary: 212 175 120;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-display {
+  font-family: 'Tangerine', cursive;
+}
+
+.font-serif-elegant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+@keyframes slowPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+.animate-slow-pulse {
+  animation: slowPulse 3.2s ease-in-out infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(8px, -12px); }
+}
+.animate-drift {
+  animation: drift 8s ease-in-out infinite;
+}
+
+@keyframes panelOpen {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-panel {
+  animation: panelOpen 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.09);
+  backdrop-filter: blur(16px);
+}
+
+/* ───────── Liquid "gel" ambient backdrop ───────── */
+
+.gel-layer {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  filter: blur(48px) saturate(135%);
+}
+
+.gel-blob {
+  position: absolute;
+  mix-blend-mode: screen;
+  will-change: transform, border-radius;
+}
+
+@keyframes gelA {
+  0% {
+    transform: translate3d(-4%, 2%, 0) scale(1);
+    border-radius: 62% 38% 55% 45% / 48% 58% 42% 52%;
+  }
+  25% {
+    transform: translate3d(9%, -7%, 0) scale(1.14);
+    border-radius: 44% 56% 38% 62% / 60% 40% 60% 40%;
+  }
+  50% {
+    transform: translate3d(4%, 10%, 0) scale(0.94);
+    border-radius: 58% 42% 66% 34% / 38% 62% 38% 62%;
+  }
+  75% {
+    transform: translate3d(-9%, 4%, 0) scale(1.08);
+    border-radius: 36% 64% 46% 54% / 56% 36% 64% 44%;
+  }
+  100% {
+    transform: translate3d(-4%, 2%, 0) scale(1);
+    border-radius: 62% 38% 55% 45% / 48% 58% 42% 52%;
+  }
+}
+
+@keyframes gelB {
+  0% {
+    transform: translate3d(3%, -3%, 0) scale(1.05);
+    border-radius: 48% 52% 60% 40% / 55% 45% 55% 45%;
+  }
+  30% {
+    transform: translate3d(-8%, 6%, 0) scale(0.9);
+    border-radius: 64% 36% 42% 58% / 40% 62% 38% 60%;
+  }
+  60% {
+    transform: translate3d(7%, 9%, 0) scale(1.16);
+    border-radius: 38% 62% 58% 42% / 62% 38% 58% 42%;
+  }
+  100% {
+    transform: translate3d(3%, -3%, 0) scale(1.05);
+    border-radius: 48% 52% 60% 40% / 55% 45% 55% 45%;
+  }
+}
+
+@keyframes gelC {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    border-radius: 54% 46% 44% 56% / 46% 54% 46% 54%;
+  }
+  40% {
+    transform: translate3d(-11%, -6%, 0) scale(1.2);
+    border-radius: 40% 60% 62% 38% / 58% 42% 58% 42%;
+  }
+  70% {
+    transform: translate3d(8%, 5%, 0) scale(0.92);
+    border-radius: 66% 34% 38% 62% / 42% 60% 40% 58%;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    border-radius: 54% 46% 44% 56% / 46% 54% 46% 54%;
+  }
+}
+
+@keyframes gelSheen {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.gel-sheen {
+  position: fixed;
+  inset: -40%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(120, 220, 210, 0.35) 60deg,
+    transparent 140deg,
+    rgba(212, 175, 120, 0.28) 240deg,
+    transparent 330deg
+  );
+  filter: blur(70px);
+  animation: gelSheen 90s linear infinite;
+}
+
+.gel-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 80% at 50% 0%, rgba(8,14,22,0.15) 0%, rgba(8,14,22,0.62) 55%, rgba(8,14,22,0.86) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gel-blob, .gel-sheen { animation: none !important; }
+}
