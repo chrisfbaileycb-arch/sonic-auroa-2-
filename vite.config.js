@@ -108,9 +108,9 @@ export default defineConfig({
     allowedHosts: true,
     hmr: false,
   },
-  // Pre-bundle ALL libraries that generated code may import.
-  // Without this, Vite discovers new imports at runtime, triggers re-optimization,
-  // and invalidates existing chunks — causing 404s in the browser.
+  // Pre-bundle the libraries the app imports, so Vite never discovers a new
+  // dependency at runtime, re-optimizes, and invalidates chunks the browser
+  // has already fetched (which shows up as 404s on assets).
   optimizeDeps: {
     include: [
       'react',
@@ -118,12 +118,6 @@ export default defineConfig({
       'react-dom/client',
       'react-router-dom',
       'lucide-react',
-      'date-fns',
-      'date-fns/locale',
-      'phaser',
-      'leaflet',
-      'react-leaflet',
-      'qrcode.react',
       '@supabase/supabase-js',
     ],
   },

@@ -1,7 +1,7 @@
 {
-  "name": "whacka-pwa-template",
+  "name": "sonic-aura",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,16 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "lucide-react": "^0.563.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.0",
-    "qrcode.react": "^4.2.0",
-    "lucide-react": "^0.563.0",
-    "date-fns": "^3.0.0",
-    "@supabase/supabase-js": "^2.39.0",
-    "phaser": "^3.90.0",
-    "leaflet": "^1.9.4",
-    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.21.0"
+  },
+  "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
